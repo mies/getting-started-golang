@@ -15,10 +15,8 @@ func CityHandler(res http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	r := mux.NewRouter()
-	r.HandleFunc("/cities.json", CityHandler)
-	http.Handle("/", r)
-	err := http.ListenAndServe(":"+os.Getenv("PORT"), r)
+	http.HandleFunc("/cities.json", CityHandler)
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
