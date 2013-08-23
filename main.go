@@ -2,14 +2,17 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"os"
 )
 
+var (
+	cities = []string {"San Francisco, Amsterdam, Berlin, New York"}
+)
+
 func CityHandler(res http.ResponseWriter, req *http.Request) {
-	data, _ := json.Marshal("{'cities':'San Francisco, Amsterdam, Berlin, New York'}")
+	data, _ := json.Marshal(cities)
 	res.Header().Set("Content-Type", "application/json; charset=utf-8")
 	res.Write(data)
 }
