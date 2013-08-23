@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	cities = []string {"San Francisco, Amsterdam, Berlin, New York"}
+	cities = []string {"San Francisco", "Amsterdam", "Berlin", "New York"}
 )
 
 func CityHandler(res http.ResponseWriter, req *http.Request) {
